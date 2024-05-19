@@ -1,0 +1,20 @@
+An experimental open source stand alone ECU based upon the Bosch M7.4.4 ECU commonly found in Peugeot and Citroen automobiles. These were the cheapest OEM ECU available at the time of development averaging USD$15ea shipped on eBay.
+
+With no schematics or datasheets available this ECU and the ME7.4.4 was reverse engineered at the PCB level and all new firmware coded from the ground up in plain old C.
+
+This project is based around the M744 ECU which has subtle differences to the ME744. Notably the M744 has an IAC stepper motor driver where the ME744 is desgined for electronic throttle bodies, and the M744 has two injector outputs (supports 2 injectors per output) vs 4 injector outputs.
+
+The M744 ECU includes a configurable Knock sensor IC (yet to be fully reversed), 2 High current ignitor outputs, multiple low side outputs, H-bridge outputs and a robust VR conditioner IC.
+
+Specs:
+C167SR-LM CPU @ 20MHZ (ME744 @ 24MHZ)
+512kbytes Flash ROM
+32kbytes SRAM
+2kbytes EEPROM
+K-line communications (ME744 also supports CAN)
+
+Compatibility:
+Most 4cyl engines with 36-1 trigger wheel patterns. Other trigger wheel patterns can be supported but not tested
+Speed density fueling
+Real Time Tuning via TunerProRT using the supplied plugin
+Communications via a cheap VAG-KKL USB-OBD cable
