@@ -1,7 +1,7 @@
 Hex2Bin.exe - A tool to convert Keil C166 Hex output into a Binary file. Use: Hex2Bin Source Destination
-UploadViaDebug.exe - A tool to connect to the ECU over K-line when booted into debug mode, to upload a Flash firmware. Use: UploadViaDebug comPortNumber Filename
-FlashUpdate.exe - A tool to connect to the ECU over K-line once our custom firmware is already running to update firmware. Use: FlashUpdate comPortNumber Filename
-SendCalToFlash.exe - A tool to erase and write only the map area of the flash. Use: SendCalToFlash comPortNumber Filename
+UploadViaDebug.exe - A tool to connect to the ECU over K-line when booted into debug mode, to upload a Flash firmware. Use: UploadViaDebug comPortNumber Filename [Use this to upload the open source firmware to a stock factory ECU]
+FlashUpdate.exe - A tool to connect to the ECU over K-line once our custom firmware is already running to update firmware. Use: FlashUpdate comPortNumber Filename [Use this to upload/update firmware to an ECU already running the open source firmware]
+SendCalToFlash.exe - A tool to erase and write only the map area of the flash. Use: SendCalToFlash comPortNumber Filename [Use this to upload your tunerpro tune to flash]
 Stage1.bin - Stage1 kernel which is loaded to the ECU in debug mode. It allows boostrapping of the Stage2.bin kernel
 Stage2.bin - Stage2 kernel - supports simple commands to erase, read and write Flash data
 
