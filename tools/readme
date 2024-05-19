@@ -4,4 +4,5 @@ FlashUpdate.exe - A tool to connect to the ECU over K-line once our custom firmw
 SendCalToFlash.exe - A tool to erase and write only the map area of the flash. Use: SendCalToFlash comPortNumber Filename [Use this to upload your tunerpro tune to flash]
 Stage1.bin - Stage1 kernel which is loaded to the ECU in debug mode. It allows boostrapping of the Stage2.bin kernel
 Stage2.bin - Stage2 kernel - supports simple commands to erase, read and write Flash data
+M744Plugin.dll - TunerProRT plugin - copy to your TunerProRT installation folder and select the plugin in TunerProRT settings. Supports Emulation, Tune upload and download. Verify not yet coded.
 
