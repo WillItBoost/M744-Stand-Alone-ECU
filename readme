@@ -1,4 +1,4 @@
-An experimental open source stand alone ECU based upon the Bosch M7.4.4 ECU commonly found in Peugeot and Citroen automobiles. These were the cheapest OEM ECU available at the time of development averaging USD$15ea shipped on eBay.
+An experimental open source stand alone ECU based upon the Bosch M7.4.4 ECU commonly found in Peugeot and Citroen vehicles. These were the cheapest OEM ECU available at the time of development averaging USD$15ea shipped on eBay.
 
 With no schematics or datasheets available this ECU and the ME7.4.4 was reverse engineered at the PCB level and all new firmware coded from the ground up in plain old C.
 
@@ -18,3 +18,5 @@ Most 4cyl engines with 36-1 trigger wheel patterns. Other trigger wheel patterns
 Speed density fueling
 Real Time Tuning via TunerProRT using the supplied plugin
 Communications via a cheap VAG-KKL USB-OBD cable
+
+ECU molex connectors and looms are available new on Aliexpress, quoted $70 for the 3 ecu plugs with a 2meter loom attached. Bare plugs with pins are ~$5ea, 3 required.
