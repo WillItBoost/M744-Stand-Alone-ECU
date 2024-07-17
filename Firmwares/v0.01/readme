@@ -1,1 +1,5 @@
 Added more MAP sensor tables, CLT and IAT tables
+Fueling now working
+AFR tables complete
+Rescaled injection/dead time tables in adf
+Tachometer output (for tacho or delco ignition events)
