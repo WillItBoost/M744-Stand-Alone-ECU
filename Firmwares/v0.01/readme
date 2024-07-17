@@ -3,3 +3,12 @@ Fueling now working
 AFR tables complete
 Rescaled injection/dead time tables in adf
 Tachometer output (for tacho or delco ignition events)
+
+To do:
+Cold start enrichment
+Accel enrich
+Tip in timing advance
+K15 relay control
+Fuel pump relay control
+Boost control solenoid code
+Idle control strategy (timing advance)
