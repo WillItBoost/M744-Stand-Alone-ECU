@@ -1,0 +1,10 @@
+Added Cranking Fuel tables
+Added Cold Start enrichment
+
+To do:
+Accel enrich
+Tip in timing advance
+K15 relay control
+Fuel pump relay control
+Boost control solenoid code
+Idle control strategy (timing advance)
