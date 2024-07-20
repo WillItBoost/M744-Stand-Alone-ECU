@@ -1,0 +1,396 @@
+<ADXFORMAT version="1.01">
+  <!-- Written 07/19/2024 12:31:46 -->
+  <ADXHEADER>
+    <guid>dbfb75c5-1059-4dab-a222-d3c90a404674</guid>
+    <flags>0x10000</flags>
+    <objectcount>29</objectcount>
+    <userversion>0.0</userversion>
+    <author>BennVenn</author>
+    <desc>BV7.4.4 ADX</desc>
+    <baud>19200</baud>
+    <DEFAULTS datasizeinbits="8" sigdigits="2" outputtype="3" baud="0" signed="0" lsbfirst="0" float="0" />
+    <monitorcmd>TXRX</monitorcmd>
+  </ADXHEADER>
+
+  <ADXVALUE id="IACSTEPS" idhash="0xC7C572C9" title="IAC Steps">
+    <desc>IAC steps</desc>
+    <packetoffset>0x13</packetoffset>
+    <range low="0.000000" high="255.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>36</datatype>
+    <unittype>27</unittype>
+    <MATH equation="X">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="COILDWELL" idhash="0x47177255" title="CoilDwell">
+    <desc>dwell in mS</desc>
+    <units>mS</units>
+    <packetoffset>0x11</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="255.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>3</digcount>
+    <outputtype>3</outputtype>
+    <unittype>85</unittype>
+    <MATH equation="X/1000">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="INJDEADTIME" idhash="0x9B5FA767" title="InjDeadTime">
+    <desc>Injector Dead time in mS</desc>
+    <packetoffset>0x0F</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="255.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>3</digcount>
+    <outputtype>3</outputtype>
+    <MATH equation="X/1200">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXBITMASK id="SPARKCUT" idhash="0x1DE390D7" title="Spark Output Enable">
+    <desc>Indicates Spark output has been disabled</desc>
+    <flags>0x00000004</flags>
+    <truestring>No</truestring>
+    <falsestring>Yes</falsestring>
+    <ALARMONSET color="0x000000FF" />
+    <ALARMONNOTSET color="0x0000FF00" />
+    <packetoffset>0x14</packetoffset>
+    <operand>0x00000001</operand>
+    <bitop>AND</bitop>
+    <result>0x00000001</result>
+  </ADXBITMASK>
+
+  <ADXBITMASK id="FLOODCLEAR" idhash="0x40F4DD71" title="Flood Clear">
+    <desc>Hoding the throttle at 100% before cranking will disable the injectors to clear a flooded engine.</desc>
+    <flags>0x00000004</flags>
+    <truestring>Active</truestring>
+    <falsestring>Off</falsestring>
+    <ALARMONSET color="0x000000FF" />
+    <ALARMONNOTSET color="0x0000FF00" />
+    <packetoffset>0x14</packetoffset>
+    <operand>0x00000020</operand>
+    <bitop>AND</bitop>
+    <result>0x00000020</result>
+  </ADXBITMASK>
+
+  <ADXBITMASK id="FUELING" idhash="0x934C5D29" title="Fueling">
+    <desc>Which Fuel table is being used, Temp vs Crank or VE</desc>
+    <flags>0x0000000C</flags>
+    <truestring>Crank Fuel</truestring>
+    <falsestring>VE</falsestring>
+    <ALARMONSET color="0x000000FF" />
+    <ALARMONNOTSET color="0x0000FF00" />
+    <packetoffset>0x14</packetoffset>
+    <operand>0x00000004</operand>
+    <bitop>AND</bitop>
+    <result>0x00000004</result>
+  </ADXBITMASK>
+
+  <ADXBITMASK id="FUELOUTPUTENAB" idhash="0x92758E3A" title="Fuel Output Enable">
+    <desc>Indicates Injector output has been disabled</desc>
+    <flags>0x00000004</flags>
+    <truestring>No</truestring>
+    <falsestring>Yes</falsestring>
+    <ALARMONSET color="0x000000FF" />
+    <ALARMONNOTSET color="0x0000FF00" />
+    <packetoffset>0x14</packetoffset>
+    <operand>0x00000040</operand>
+    <bitop>AND</bitop>
+    <result>0x00000040</result>
+  </ADXBITMASK>
+
+  <ADXBITMASK id="ENGINESTALLED" idhash="0xCD2F4022" title="Engine State">
+    <desc>Indicates if the Engine is running or stalled</desc>
+    <flags>0x00000004</flags>
+    <truestring>Stalled</truestring>
+    <falsestring>Running</falsestring>
+    <ALARMONSET color="0x000000FF" />
+    <ALARMONNOTSET color="0x0000FF00" />
+    <packetoffset>0x14</packetoffset>
+    <operand>0x00000080</operand>
+    <bitop>AND</bitop>
+    <result>0x00000080</result>
+  </ADXBITMASK>
+
+  <ADXBITMASK id="COOLINGFAN" idhash="0x2FA23346" title="Cooling Fan">
+    <desc>State of the Fan Relay Output</desc>
+    <flags>0x00000004</flags>
+    <truestring>On</truestring>
+    <falsestring>Off</falsestring>
+    <ALARMONSET color="0x000000FF" />
+    <ALARMONNOTSET color="0x0000FF00" />
+    <packetoffset>0x14</packetoffset>
+    <operand>0x00000010</operand>
+    <bitop>AND</bitop>
+    <result>0x00000010</result>
+  </ADXBITMASK>
+
+  <ADXBITMASK id="FUELPUMPRELAY" idhash="0x4D525388" title="Fuel Pump">
+    <desc>State of the Fuel Pump Relay</desc>
+    <flags>0x0000000C</flags>
+    <truestring>On</truestring>
+    <falsestring>Off</falsestring>
+    <ALARMONSET color="0x000000FF" />
+    <ALARMONNOTSET color="0x0000FF00" />
+    <packetoffset>0x14</packetoffset>
+    <operand>0x00000008</operand>
+    <bitop>AND</bitop>
+    <result>0x00000008</result>
+  </ADXBITMASK>
+
+  <ADXBITMASK id="TABLE" idhash="0x15054C75" title="Tables In Use">
+    <desc>Use boost or NA tables</desc>
+    <truestring>Boost Maps in use</truestring>
+    <falsestring>NA Maps in use</falsestring>
+    <ALARMONSET color="0x000000FF" />
+    <ALARMONNOTSET color="0x0000FF00" />
+    <packetoffset>0x14</packetoffset>
+    <operand>0x00000002</operand>
+    <bitop>AND</bitop>
+    <result>0x00000002</result>
+  </ADXBITMASK>
+
+  <ADXCLISTENSILENCE flags="0x00000003" id="WAIT" idhash="0xA0B8DF39" title="wait">
+    <silencelen>0</silencelen>
+    <totaltimeout>10</totaltimeout>
+  </ADXCLISTENSILENCE>
+
+  <ADXMONITOR id="MONITORDATA" idhash="0xDEAAE9A2" title="Monitor Data">
+    <mainbkgcolor>0x00FFFFFF</mainbkgcolor>
+    <plotbkgcolor>0x00F0F0F0</plotbkgcolor>
+    <plotoutlinecolor>0x00000000</plotoutlinecolor>
+    <titlecolor>0x00000000</titlecolor>
+    <timeaxiscolor>0x00000000</timeaxiscolor>
+    <entrycount>2</entrycount>
+    <ADXMONSERIES linecolor="0x009600" axiscolor="0x009600" itemidhash="0xCD66CE5B" />
+    <ADXMONSERIES linecolor="0x0000FF" axiscolor="0x0000FF" itemidhash="0xCD6D5A5B" />
+  </ADXMONITOR>
+
+  <ADXVALUE id="RPM" idhash="0xCD0CD1DB" title="RPM">
+    <desc>16bit RPM</desc>
+    <parentcmdidhash>0x1DB61E8B</parentcmdidhash>
+    <packetoffset>0x00</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="9999.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>6</datatype>
+    <unittype>4</unittype>
+    <MATH equation="X">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="IGNTIMING" idhash="0x7AB9794E" title="IgnTiming">
+    <desc>Requested spark timing</desc>
+    <parentcmdidhash>0x1DB61E8B</parentcmdidhash>
+    <units>BTDC</units>
+    <packetoffset>0x02</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="255.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>38</datatype>
+    <MATH equation="X/2">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="INJECTORPW" idhash="0x60D0C86B" title="InjectorPW">
+    <desc>Actual Injector PW</desc>
+    <parentcmdidhash>0x1DB61E8B</parentcmdidhash>
+    <packetoffset>0x04</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="255.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>3</digcount>
+    <outputtype>3</outputtype>
+    <datatype>53</datatype>
+    <unittype>85</unittype>
+    <MATH equation="X/1200">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="MAP" idhash="0xCD7B53DB" title="MAP">
+    <desc>MAP in KPA</desc>
+    <parentcmdidhash>0x1DB61E8B</parentcmdidhash>
+    <packetoffset>0x06</packetoffset>
+    <sizeinbits>16</sizeinbits>
+    <range low="0.000000" high="255.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>24</datatype>
+    <unittype>17</unittype>
+    <MATH equation="X">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="VE" idhash="0xDE6A8830" title="VE">
+    <desc>Calculated VE</desc>
+    <parentcmdidhash>0x1DB61E8B</parentcmdidhash>
+    <units>VE</units>
+    <packetoffset>0x08</packetoffset>
+    <range low="0.000000" high="255.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <unittype>67</unittype>
+    <MATH equation="0.390625 * X">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="REQAFR" idhash="0xC9E9B4E6" title="ReqAFR">
+    <desc>Requested AFR</desc>
+    <parentcmdidhash>0x1DB61E8B</parentcmdidhash>
+    <packetoffset>0x09</packetoffset>
+    <range low="0.000000" high="255.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>28</datatype>
+    <unittype>21</unittype>
+    <MATH equation="X/10">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="AFR" idhash="0xCD13BC7B" title="AFR">
+    <desc>Actual AFR</desc>
+    <parentcmdidhash>0x1DB61E8B</parentcmdidhash>
+    <packetoffset>0x0A</packetoffset>
+    <range low="0.000000" high="255.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>30</datatype>
+    <unittype>21</unittype>
+    <MATH equation="X/10">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="TPS" idhash="0xCD44515B" title="TPS">
+    <desc>TPS in %</desc>
+    <parentcmdidhash>0x1DB61E8B</parentcmdidhash>
+    <packetoffset>0x0B</packetoffset>
+    <range low="0.000000" high="255.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>57</datatype>
+    <unittype>67</unittype>
+    <MATH equation="X">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="IAT" idhash="0xCD66CE5B" title="IAT">
+    <desc>IAT in Deg C</desc>
+    <flags>0x00000001</flags>
+    <parentcmdidhash>0x1DB61E8B</parentcmdidhash>
+    <packetoffset>0x0C</packetoffset>
+    <range low="0.000000" high="255.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>19</datatype>
+    <unittype>15</unittype>
+    <MATH equation="X">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="CLT" idhash="0xCD6D5A5B" title="CLT">
+    <desc>Coolant temp in Deg C</desc>
+    <flags>0x00000001</flags>
+    <parentcmdidhash>0x1DB61E8B</parentcmdidhash>
+    <packetoffset>0x0D</packetoffset>
+    <range low="0.000000" high="255.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>13</datatype>
+    <unittype>15</unittype>
+    <MATH equation="X">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXVALUE id="VBATT" idhash="0x485C6F75" title="vBatt">
+    <desc>Battery Voltage</desc>
+    <parentcmdidhash>0x1DB61E8B</parentcmdidhash>
+    <packetoffset>0x0E</packetoffset>
+    <range low="0.000000" high="20.000000" />
+    <alarms low="0.000000" high="255.000000" />
+    <digcount>2</digcount>
+    <outputtype>3</outputtype>
+    <datatype>66</datatype>
+    <unittype>32</unittype>
+    <MATH equation="X*.22465">
+      <VAR varID="X" type="native" />
+    </MATH>
+  </ADXVALUE>
+
+  <ADXDASHBOARD id="VALUE1" idhash="0xA5B303C8" title="Value1">
+    <entrycount>1</entrycount>
+    <ADXDGENTRY gaugetype="0" itemidhash="0xCD0CD1DB" left="0" top="0" right="100" bottom="100" arcmax="300" />
+  </ADXDASHBOARD>
+
+  <ADXMACRO id="TXRX" idhash="0xA8A411D9" title="TXRX" repeatcount="1">
+    <desc>Trasnmit the request then grab the packet</desc>
+    <NODE commandID="GetMonitorData" repeatcount="1" />
+    <NODE commandID="WAIT" repeatcount="1" />
+    <NODE commandID="LISTENFORPACKE" repeatcount="1" />
+  </ADXMACRO>
+
+  <ADXLISTVIEW id="Mon0" idhash="0xAF732059" title="Monitor Data">
+    <desc>monitor data</desc>
+    <entrycount>21</entrycount>
+    <ADXLVENTRY entrytype="0" itemidhash="0xCD0CD1DB" />
+    <ADXLVENTRY entrytype="0" itemidhash="0xCD7B53DB" />
+    <ADXLVENTRY entrytype="0" itemidhash="0xDE6A8830" />
+    <ADXLVENTRY entrytype="0" itemidhash="0xCD13BC7B" />
+    <ADXLVENTRY entrytype="0" itemidhash="0x9B5FA767" />
+    <ADXLVENTRY entrytype="0" itemidhash="0x60D0C86B" />
+    <ADXLVENTRY entrytype="0" itemidhash="0x7AB9794E" />
+    <ADXLVENTRY entrytype="0" itemidhash="0xC7C572C9" />
+    <ADXLVENTRY entrytype="0" itemidhash="0x47177255" />
+    <ADXLVENTRY entrytype="0" itemidhash="0xCD44515B" />
+    <ADXLVENTRY entrytype="0" itemidhash="0xCD66CE5B" />
+    <ADXLVENTRY entrytype="0" itemidhash="0xCD6D5A5B" />
+    <ADXLVENTRY entrytype="0" itemidhash="0x485C6F75" />
+    <ADXLVENTRY entrytype="0" itemidhash="0x92758E3A" />
+    <ADXLVENTRY entrytype="0" itemidhash="0x1DE390D7" />
+    <ADXLVENTRY entrytype="0" itemidhash="0x2FA23346" />
+    <ADXLVENTRY entrytype="0" itemidhash="0x4D525388" />
+    <ADXLVENTRY entrytype="0" itemidhash="0x934C5D29" />
+    <ADXLVENTRY entrytype="0" itemidhash="0xCD2F4022" />
+    <ADXLVENTRY entrytype="0" itemidhash="0x40F4DD71" />
+    <ADXLVENTRY entrytype="0" itemidhash="0x15054C75" />
+  </ADXLISTVIEW>
+
+  <ADXCLISTENPACKET id="LISTENFORPACKE" idhash="0x1DB61E8B" title="Listen for Packet (Monitor)" flags="0x00000005">
+    <listentimeout>2000</listentimeout>
+    <packetbodylength>25</packetbodylength>
+    <packetoffsetinbody>4</packetoffsetinbody>
+    <packetsize>21</packetsize>
+  </ADXCLISTENPACKET>
+
+  <ADXCSENDCOMMAND id="GetMonitorData" idhash="0x5C4CAE97" title="GetMonitorData" flags="0x00000003">
+    <desc>&#009;&#009;/*&#013;&#010;&#009;&#009;16bit RPM Value&#013;&#010;&#009;&#009;16bit Requested Timing&#013;&#010;&#009;&#009;16bit Injector PW&#013;&#010;&#009;&#009;16bit MAP kPa&#013;&#010;&#009;&#009;8bit VE&#013;&#010;&#009;&#009;8bit Req AFR&#013;&#010;&#009;&#009;8bit AFR&#013;&#010;&#009;&#009;8bit TPS&#013;&#010;&#009;&#009;8bit IAT&#013;&#010;&#009;&#009;8bit CLT&#013;&#010;&#009;&#009;8bit vBatt&#009;&#009;&#013;&#010;&#009;&#009;*/</desc>
+    <bytestring size="0x4">AA011011</bytestring>
+  </ADXCSENDCOMMAND>
+</ADXFORMAT>
