@@ -5,9 +5,9 @@ Added Fan On/Off temp logic
 Added Temp vs IAC table
 Fuel pump relay control added (3 sec prime)
 K15 relay control (logic complete, still need to draft up a K15 relay schematic)
+Boost control solenoid code - Using Polaris 'Starter Relay' output (need to add pwm vs rpm table)
 
 To do:
 Accel enrich
 Tip in timing advance
-Boost control solenoid code
 Idle control strategy (timing advance)
