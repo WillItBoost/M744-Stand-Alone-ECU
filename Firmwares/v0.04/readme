@@ -1,1 +1,22 @@
+Added Cranking Fuel tables
+Added Cold Start enrichment
+Added IAT Retard table
+Added Fan On/Off temp logic
+Added Temp vs IAC table
+Fuel pump relay control added (3 sec prime)
+K15 relay control (logic complete, still need to draft up a K15 relay schematic)
+Boost control solenoid code - Using Polaris 'Starter Relay' output (need to add pwm vs rpm table)
 
+Added and improved accuracy of Map sensor lookups
+1=1bar
+2=1.15bar
+3=2bar
+4=2.5bar
+5=2.7bar
+6=3bar
+
+To do:
+Add 10mS main loop interrupt
+Accel enrich
+Tip in timing advance
+Idle control strategy (timing advance)
